@@ -1,5 +1,5 @@
 tqdm==4.60.0
-torch==1.6.0+cpu
+https://download.pytorch.org/whl/cpu/torch/torch-1.5.1+cpu-cp38-cp38-linux_x86_64.whl
 Flask==2.0.1
 jsonify==0.5
 requests==2.25.1
