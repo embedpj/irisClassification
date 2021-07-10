@@ -3,21 +3,45 @@ import jsonify
 import requests
 import pickle
 import numpy as np
-import sklearn
+#import sklearn
 import torch
-import torchvision # torch package for vision related things
 import torch.nn.functional as F  # Parameterless functions, like (some) activation functions
 #import torchvision.datasets as datasets  # Standard datasets
 from torch.utils.data import Dataset, DataLoader
-import torchvision.transforms as transforms  # Transformations we can perform on our dataset for augmentation
+#import torchvision.transforms as transforms  # Transformations we can perform on our dataset for augmentation
 from torch import optim  # For optimizers like SGD, Adam, etc.
 from torch import nn  # All neural network modules
 #from torch.utils.data import DataLoader  # Gives easier dataset managment by creating mini batches etc.
 from tqdm import tqdm  # For nice progress bar!
 
+
+
 from sklearn.preprocessing import StandardScaler
 
-model = torch.load('iris_ml_model')
+
+
+
+class NN(nn.Module):
+    def __init__(self, input_size, num_classes):
+        super(NN, self).__init__() #Override the init method
+        # Our first linear layer take input_size, in this case 784 nodes to 50
+        # and our second linear layer takes 50 to the num_classes we have, in
+        # this case 10.
+        self.fc1 = nn.Linear(input_size,11 )
+        #self.fc2 = nn.Linear(10, 6)
+        self.fc2 = nn.Linear(11, num_classes)
+    def forward(self, x):
+        x = F.relu(self.fc1(x))
+        x = (self.fc2(x))
+        #x = (self.fc3(x))
+        return x
+
+path="iris_ml_model"
+input_size = 4 
+num_classes = 3
+model = NN(input_size=input_size, num_classes=num_classes)
+model.load_state_dict(torch.load(path))
+
 app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
