@@ -17,21 +17,6 @@ from tqdm import tqdm  # For nice progress bar!
 
 from sklearn.preprocessing import StandardScaler
 
-class NN(nn.Module):
-    def __init__(self, input_size, num_classes):
-        super(NN, self).__init__() #Override the init method
-        # Our first linear layer take input_size, in this case 784 nodes to 50
-        # and our second linear layer takes 50 to the num_classes we have, in
-        # this case 10.
-        self.fc1 = nn.Linear(input_size,11 )
-        #self.fc2 = nn.Linear(10, 6)
-        self.fc2 = nn.Linear(11, num_classes)
-    def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = (self.fc2(x))
-        #x = (self.fc3(x))
-        return x
-
 model = torch.load('iris_ml_model')
 app = Flask(__name__)
 
