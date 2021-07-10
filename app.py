@@ -14,12 +14,7 @@ from torch import nn  # All neural network modules
 #from torch.utils.data import DataLoader  # Gives easier dataset managment by creating mini batches etc.
 from tqdm import tqdm  # For nice progress bar!
 
-
-
 from sklearn.preprocessing import StandardScaler
-
-
-
 
 class NN(nn.Module):
     def __init__(self, input_size, num_classes):
