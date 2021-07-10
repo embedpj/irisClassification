@@ -1,5 +1,6 @@
 tqdm==4.60.0
-conda install pytorch-cpu torchvision-cpu -c pytorch
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.2.0+cpu
 Flask==2.0.1
 jsonify==0.5
 requests==2.25.1
