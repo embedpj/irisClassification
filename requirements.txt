@@ -1,6 +1,7 @@
 tqdm==4.60.0
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.8.0+cpu
+torchvision==0.9.1
 Flask==2.0.1
 jsonify==0.5
 requests==2.25.1
