@@ -1,5 +1,5 @@
 tqdm==4.60.0
-https://download.pytorch.org/whl/cpu/torch/torch-1.5.1+cpu-cp38-cp38-linux_x86_64.whl
+conda install pytorch-cpu torchvision-cpu -c pytorch
 Flask==2.0.1
 jsonify==0.5
 requests==2.25.1
