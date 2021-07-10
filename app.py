@@ -16,7 +16,7 @@ from torch import nn  # All neural network modules
 from tqdm import tqdm  # For nice progress bar!
 
 from sklearn.preprocessing import StandardScaler
-app = Flask(__name__)
+
 class NN(nn.Module):
     def __init__(self, input_size, num_classes):
         super(NN, self).__init__() #Override the init method
@@ -33,7 +33,7 @@ class NN(nn.Module):
         return x
 
 model = torch.load('iris_ml_model')
-
+app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
 def Home():
